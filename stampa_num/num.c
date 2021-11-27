@@ -15,22 +15,21 @@ int main()
 	if (x > y || x > z)
 	{
 		num2 = x;
-		if (y > x)
-		{
-			num1 = y;
-			num0 = x;
-		}
-		else
+		if (y > z)
 		{
 			num1 = y;
 			num0 = z;
-
+		}
+		else
+		{		
+			num1 = z;
+			num0 = y;
 		}
 	}
 	else
 	{
 		num0 = x;
-		if (z > y)
+		if (y > z)
 		{
 			num1 = z;
 			num2 = y;
