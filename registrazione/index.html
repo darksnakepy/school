@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Register</title>
+    </head>
+
+    <body>
+        <form action="" method="get">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" name="name" id="name" placeholder="Inserisci il nome" required>
+            </div>
+            <div>
+                <label for="cognome">Cognome:</label>
+                <input type="text" name="surname" id="surname" placeholder="Inserisci il cognome" required>
+            </div>
+            <div>
+                Sesso:
+                <div>
+                    <label for="Maschio">Maschio</label>
+                    <input type="radio" name="sesso" id="maschio" value="maschio">
+                </div>
+                <div>
+                    <label for="Femmina">Femmina</label>
+                    <input type="radio" name="sesso" id="femmina" value="femmina">
+                </div>
+                <div>
+                    <label for="Altro">Femmina</label>
+                    <input type="radio" name="sesso" id="altro" value="altro">
+                </div>
+            </div>
+            <div>
+                <label for="Data">Data di nascita</label>
+                <input type="date" name="data" id="data" required>
+            </div>
+            <div>
+                <label for="citta">Citta</label>
+                <input type="text" name="cittaNascita" id="cittaNascita" placeholder="Citta' di provenienza" required>
+            </div>
+            <div>
+                <label for="provincia">Provincia di nascita:</label>
+                <input type="text" name="provinciaNascita" id="provinciaNascita" placeholder="Inserisci la provincia di provenienza" required>
+            </div>
+            <div>
+                <label for="CAP">Codice postale:</label>
+                <input type="text" name="CAP" id="CAP" placeholder="Inserisci il codice postale" required>
+            </div>
+            <div>
+                <label for="CF">Codice fiscale:</label>
+                <input type="text" name="CF" id="CF" placeholder="Inserisci il tuo codice fiscale" required>
+            </div>
+            <div>
+                <label for="cittaResidenza">Città di residenza:</label>
+                <input type="text" name="cittaResidenza" id="cittaResidenza" placeholder="Inserisci la città di residenza" required>
+            </div>
+            <div>
+                <label for="CAPC">CAP citta di residenza:</label>
+                <input type="text" name="CAPC" id="CAPC" placeholder="Cap della città di residenza" required>
+            </div>
+            <div>
+                <label for="indirizzoCasa">Indirizzo:</label>
+                <input type="text" name="indirizzoCasa" id="indirizzoCasa" placeholder="Inserisci il tuo indirizzo di casa" required>
+            </div>
+            <div>
+                <label for="nCivico">Numero Civico:</label>
+                <input type="text" name="nCivico" id="nCivico" placeholder="Numero civico della tua casa" required>
+            </div>
+            <div>
+                <label for="nTelefono">Numero di telefono:</label>
+                <input type="text" name="nTelefono" id="nTelefono" placeholder="numero di telefono" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email" placeholder="Inserisci la tua email" required>
+            </div>
+            <div>
+                <label for="pass">Password:</label>
+                <input type="password" name="pass" id="pass" placeholder="Inserisci una password" required>
+            </div>
+            <div>
+                <p>Accettazione privacy</p>
+                <label for="privacy">Trattamento della privacy:</label>
+                <input type="checkbox" name="privacy" id="privacy">
+                <div>
+                    <label for="tos">Termini di Servizio:</label>
+                    <input type="checkbox" name="tos" id="tos">
+                </div>
+            </div>
+            <div>
+                <p>Iscrizione alla newsletter</p>
+                <div>
+                    <label for="newsletter">Si:</label>
+                    <input type="radio" name="newsletter" id="newsletter", value="si">
+                </div>
+                <div>
+                    <label for="newsletter">No:</label>
+                    <input type="radio" name="newsletter" id="newsletter" value="no">
+                </div>
+            </div>
+            <div>
+                <input type="submit">
+            </div>
+        </form>
+    </body>
+</html>
