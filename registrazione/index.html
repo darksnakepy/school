@@ -10,37 +10,37 @@
         <form action="" method="get">
             <div>
                 <label for="nome">Nome:</label>
-                <input type="text" name="name" id="name" placeholder="Inserisci il nome" required>
+                <input type="text" name="nome" id="nome" placeholder="Inserisci il nome" required>
             </div>
             <div>
                 <label for="cognome">Cognome:</label>
-                <input type="text" name="surname" id="surname" placeholder="Inserisci il cognome" required>
+                <input type="text" name="cognome" id="cognome" placeholder="Inserisci il cognome" required>
             </div>
             <div>
                 Sesso:
                 <div>
-                    <label for="Maschio">Maschio</label>
+                    <label for="maschio">Maschio</label>
                     <input type="radio" name="sesso" id="maschio" value="maschio">
                 </div>
                 <div>
-                    <label for="Femmina">Femmina</label>
+                    <label for="femmina">Femmina</label>
                     <input type="radio" name="sesso" id="femmina" value="femmina">
                 </div>
                 <div>
-                    <label for="Altro">Femmina</label>
+                    <label for="altro">Altro</label>
                     <input type="radio" name="sesso" id="altro" value="altro">
                 </div>
             </div>
             <div>
-                <label for="Data">Data di nascita</label>
+                <label for="data">Data di nascita</label>
                 <input type="date" name="data" id="data" required>
             </div>
             <div>
-                <label for="citta">Citta</label>
+                <label for="cittaNascita">Citta</label>
                 <input type="text" name="cittaNascita" id="cittaNascita" placeholder="Citta' di provenienza" required>
             </div>
             <div>
-                <label for="provincia">Provincia di nascita:</label>
+                <label for="provinciaNascita">Provincia di nascita:</label>
                 <input type="text" name="provinciaNascita" id="provinciaNascita" placeholder="Inserisci la provincia di provenienza" required>
             </div>
             <div>
@@ -81,10 +81,10 @@
             </div>
             <div>
                 <p>Accettazione privacy</p>
-                <label for="privacy">Trattamento della privacy:</label>
+                <label for="privacy">Confermo di aver letto e accettato i termini e le condizioni della Privacy Policy:</label>
                 <input type="checkbox" name="privacy" id="privacy">
                 <div>
-                    <label for="tos">Termini di Servizio:</label>
+                    <label for="tos">Confermo di acconsentire al trattamento dei miei dati personali:</label>
                     <input type="checkbox" name="tos" id="tos">
                 </div>
             </div>
@@ -100,7 +100,10 @@
                 </div>
             </div>
             <div>
-                <input type="submit">
+                <button type="submit">Invia Dati</button>
+            </div>
+            <div>
+                <button type="reset" id="reset">Reimposta Informazioni</button>
             </div>
         </form>
     </body>
