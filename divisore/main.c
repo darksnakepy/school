@@ -25,24 +25,25 @@ int main()
 
 		while (cont == true)
 		{
-			printf("Scrivi un numero maggiore di 0\n");
+			printf("Scrivi un numero  di 0\n");
 			scanf("%d", &n);
-
-			numDiv = n;
 			if (n > 0)
 			{
-				printf("%d\n", numDiv);
+				divisore = n;
+				while (divisore > 0)
+				{
+					numDiv = n % divisore;
+					if (numDiv == 0)
+					{
+						printf("%d\n", divisore);
+					}
+					divisore = divisore - 1;
+				}
 			}
 			else
 			{
-			cont == false;
+				cont == false;
 			}
 		}
 	}
-	else
-	{
-		cont == false;
-	}
-	system("pause");
-
 }
