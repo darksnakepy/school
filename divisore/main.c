@@ -30,7 +30,6 @@ int main()
 		}
 	}
 		while(cont==true);
-		{
-			printf("Il numero e' uguale a 0!\n");
-		}
+		printf("Il numero e' uguale a 0!\n");
+		
 }
