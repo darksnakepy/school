@@ -5,7 +5,7 @@
 int main()
 {
 	int n, divisore, numDiv;
-	bool cont = true;
+	bool cond = true;
 
 	do
 	{	
@@ -26,10 +26,10 @@ int main()
 		}
 		else
 		{
-			cont = false;
+			cond = false;
 		}
 	}
-		while(cont==true);
+		while(cond==true);
 		printf("Il numero e' uguale a 0!\n");
 		
 }
