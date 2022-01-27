@@ -1,0 +1,18 @@
+A: NOP
+B: NOP
+RESTO: NOP
+
+INP 
+STA [A]
+INP 
+STA [B] 
+LDA [A]
+LDB [B]
+MUL
+STA [RESTO]
+LDA [A]
+MUL
+LDB [RESTO]
+ADD
+OUT
+HLT
