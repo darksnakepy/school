@@ -73,33 +73,22 @@ int main()
         {
         case 1: comprare();
             break;
-            case 2: switch (staffpage())
-                            {
-                                case 1: addScorte();
-                                        break;
-                                case 2: scontrino();
-                            }
+        case 2: switch (staffpage())
+        {
+        case 1: addScorte();
+            break;
+        case 2: scontrino();
+            break;
+        case 3: break;
         }
-
+              break;
+        default: printf("Inserisci un altro numero\n");
+            break;
+        }
     } while (true);
-}
-
-
-int stafflogin()
-{
  
-    printf("Inserisci la password per poter accedere alla schermata di admin");
-    scanf("%s", &input);
-    if (input != password)
-    {
-        printf("Accesso vietato.\n");
-    }
-    else
-    {
-        printf("Accesso eseguito..\n");
-    }
-    return stafflogin;
 }
+
 
 int staffpage()
 {   
@@ -112,7 +101,7 @@ int staffpage()
 
 int comprare()
 {
-    int choice = 0;
+    int choice;
 
     do
     {
@@ -145,7 +134,6 @@ int comprare()
                 printf("Scelta Sbagliata! Ritorna al menu' per riordinare\n");
             }
         }
-
         else if (choice == 24)
         {
             scontrino();
@@ -156,7 +144,7 @@ int comprare()
 
 int addScorte()
 {
-    int scorte, choice;
+    int scorte = 1, choice;
     printf("Ecco la lista dei prodotti disponibili\n");
     do {
 
@@ -170,7 +158,7 @@ int addScorte()
             printf("%d  %s\n", i + 18, tipibevande[i], tempbevande[i]);
         }
 
-        printf("Quali numeri vuoi aggiungere?\n");
+        printf("Quali numeri vuoi aggiungere?[Premere 25 per uscire]\n");
         scanf("%d", &choice);
         if (choice == 24)
         {
@@ -178,11 +166,11 @@ int addScorte()
         }
         else if (choice < 0)
         {
-            temppanini[choice] += addNum();
+            temppanini[choice] += scorte;
         }
-        else if (choice > 10)
+        else if (choice >= 18)
         {
-            tempbevande[choice - 18] += addNum();
+            tempbevande[choice - 18] += scorte;
         }
 
     } while (choice != 25);
@@ -207,3 +195,4 @@ int clear()
     system("cls");
     #endif
 }
+
