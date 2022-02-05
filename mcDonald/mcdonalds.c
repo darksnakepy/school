@@ -107,13 +107,13 @@ int addScorte()
     do {
         for (int i = 0; i < nPanini; i++)
             {
-            printf("%d  %s %2.f\n", i, tipiPanini[i], temppanini[i], prezzoPanini[i]);
+            printf("%d  %s\n", i, tipiPanini[i], temppanini[i]);
             }
         
 
         for (int i = 0; i < nbevande; i++)
         {
-          printf("%d  %s %2.f\n", i + 18, tipibevande[i], tempbevande[i], prezzoBevande[i]);
+          printf("%d  %s \n", i + 18, tipibevande[i], tempbevande[i]);
         }
         printf("Quali numeri vuoi aggiungere? [Premere 25 per uscire]\n");
         printf("[24]Scegli il numero di scorte da aggiungere. Default = %d\n", scorte);
@@ -162,7 +162,7 @@ int comprare()
         {
             if (tempbevande[i] > 0)
             {
-                printf("%d Bevanda = %s || Scorte disponibili = %d || Prezzo = %.2f $\n", i + 18, tipibevande[i], tempbevande[i]);
+                printf("[%d] Bevanda = %s || Scorte disponibili = %d || Prezzo = %.2f $\n", i + 18, tipibevande[i], tempbevande[i]);
             }
         }
         printf("Inserisci il numero del prodotto che vuoi acquistare [Premere 24 per terminare]\n");
