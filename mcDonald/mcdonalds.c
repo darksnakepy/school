@@ -66,6 +66,7 @@ int main()
 {
     do
     {   
+        clear();
         int choice = 0;
         printf("Benvenuto al McDonald's. Cosa Scegli\n[1]Acquista\n[2]Sezione Staff/Scorte\n");
         scanf_s("%d", &choice);
@@ -114,7 +115,6 @@ int addScorte()
         {
           printf("%d  %s %2.f\n", i + 18, tipibevande[i], tempbevande[i], prezzoBevande[i]);
         }
-
         printf("Quali numeri vuoi aggiungere? [Premere 25 per uscire]\n");
         printf("[24]Scegli il numero di scorte da aggiungere. Default = %d\n", scorte);
         scanf_s("%d", &choice);
@@ -135,7 +135,8 @@ int addScorte()
 }
 
 int addNum()
-{
+{   
+    clear();
     int num = 1;
     printf("Inserisci quante scorte vuoi aggiungere\n");
     scanf_s("%d", &num);
@@ -153,7 +154,7 @@ int comprare()
         {
             if (temppanini[i] > 0)
             {
-                printf("%d  %s %d = %.2f $\n", i, tipiPanini[i], temppanini[i], prezzoPanini[i]);
+                printf("[%d]  Panino = %s || Scorte Disponibili = %d || Prezzo = %.2f $\n", i, tipiPanini[i], temppanini[i], prezzoPanini[i]);
             }
         }
 
@@ -161,7 +162,7 @@ int comprare()
         {
             if (tempbevande[i] > 0)
             {
-                printf("%d  %s %d = %.2f $\n", i + 18, tipibevande[i], tempbevande[i]);
+                printf("%d Bevanda = %s || Scorte disponibili = %d || Prezzo = %.2f $\n", i + 18, tipibevande[i], tempbevande[i]);
             }
         }
         printf("Inserisci il numero del prodotto che vuoi acquistare [Premere 24 per terminare]\n");
