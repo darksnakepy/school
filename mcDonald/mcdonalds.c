@@ -20,8 +20,8 @@ int addScorte();
 
 // variabili globali 
 float prezzofinale;
-int tempbevande[nbevande];
-int temppanini[nPanini]; // scorte panini
+int tempbevande[nbevande]={ 10, 10, 10, 10, 10, 10 };
+int temppanini[nPanini] = { 10, 10, 10, 10, 10, 10, 10, 10,10, 10, 10, 10,10, 10, 10, 10,10, 10 };
 int conto[24];
 float clienti[maxclienti];
 int numClt = 0;
@@ -77,7 +77,7 @@ int main()
     {
         clear();
         int choice = 0;
-        printf("Benvenuto al McDonald's. Cosa Scegli\n[1]Acquista\n[2]Sezione Staff/Scorte\n");
+        printf("\n Benvenuto al McDonald's. Cosa Scegli\n\n [1] - Acquista\n [2] - Sezione Staff/Scorte\n\n>");
         scanf_s("%d", &choice);
         switch (choice)
         {
@@ -102,7 +102,7 @@ int staffpage()
 {
     clear();
     int choice;
-    printf("[1]Aggiungi Scorte\n[2]Profitti della giornata\n[3]Torna indietro\n");
+    printf("\n [1] - Aggiungi Scorte\n [2] - Profitti della giornata\n [3] - Torna indietro\n\n>");
     scanf_s("%d", &choice);
     return choice;
 }
@@ -156,11 +156,12 @@ int comprare()
 
     do
     {
+        clear();
         for (int i = 0; i < nPanini; i++)
         {
             if (temppanini[i] > 0)
             {
-                printf("[%d]  Panino = %s || Scorte Disponibili = %d || Prezzo = %.2f $\n", i, tipiPanini[i], temppanini[i], prezzoPanini[i]);
+                printf("[%d] Prodotto = %s || Scorte Disponibili = %d || Prezzo = %.2f $\n", i, tipiPanini[i], temppanini[i], prezzoPanini[i]);
             }
         }
 
@@ -171,7 +172,7 @@ int comprare()
                 printf("[%d] Bevanda = %s || Scorte disponibili = %d || Prezzo = %.2f $\n", i + 18, tipibevande[i], tempbevande[i]);
             }
         }
-        printf("Inserisci il numero del prodotto che vuoi acquistare [Premere 24 per terminare]\n");
+        printf("\nInserisci il numero del prodotto che vuoi acquistare [Premere 24 per terminare]\n>");
         scanf_s("%d", &choice);
 
         if (choice < 24)
