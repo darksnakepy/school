@@ -4,7 +4,7 @@
 #define nPanini 18
 #define nbevande 6
 #define maxlength 100
-#define maxclienti 1000
+#define tempclienti 1000
 #define ncoupon 3
 
 // dichiaro le funzioni
@@ -17,17 +17,16 @@ int addNum();
 int scontrino();
 int inizio();
 int addScorte();
+int profitto();
 
 // variabili globali 
-float prezzofinale;
 int tempbevande[nbevande]={ 10, 10, 10, 10, 10, 10 };
 int temppanini[nPanini] = { 10, 10, 10, 10, 10, 10, 10, 10,10, 10, 10, 10,10, 10, 10, 10,10, 10 };
 int conto[24];
-float clienti[maxclienti];
-int numClt = 0;
+float clienti[tempclienti];
 bool couponOn = false;
 int nClienti = 0;
-
+float incasso = 0;
 
 float prezzoPanini[nPanini] = { 6.40, 8.10, 8.60, 8.60, 8.60, 6.70, 2.90, 1.80, 1.30, 4.50, 6.40, 2.90, 1.80, 2.40, 2.90, 1.80, 1.90, 5.60 };
 float prezzoBevande[nbevande] = { 1.50, 2.80, 0.55, 2.80, 2.80, 1.90 };
@@ -87,7 +86,7 @@ int main()
         {
         case 1: addScorte();
             break;
-        case 2: scontrino();
+        case 2: profitto();
                 break;
         case 3: break;
         }
@@ -172,7 +171,7 @@ int comprare()
                 printf("[%d] Bevanda = %s || Scorte disponibili = %d || Prezzo = %.2f $\n", i + 18, tipibevande[i], tempbevande[i]);
             }
         }
-        printf("\nInserisci il numero del prodotto che vuoi acquistare [Premere 24 per terminare]\n>");
+        printf("\nInserisci il numero del prodotto che vuoi acquistare [Premere 24 per stampare lo scontrino]\n>");
         scanf_s("%d", &choice);
 
         if (choice < 24)
@@ -190,7 +189,7 @@ int comprare()
             else
             {
                 clear();
-                printf("L'elemento non e' piu disponibile.\n");
+                printf("L'elemento non e' piu disponibile. Scegline un altro\n");
             }
         }
         else if (choice == 24)
@@ -198,29 +197,32 @@ int comprare()
             scontrino();
         }
     } while (choice != 24);
+    
+    return 0;
 
 }
 
 int scontrino()
-{
+{   
+    int temp;
     clear();
     printf("Ecco lo scontrino:\n");
-    for (int i = 0; i < nbevande + nPanini; i++)
+    for (int i = 0; i < nPanini + nbevande; i++)
     {
         if (conto[i] > 0)
         {
             if (i < 18)
             {
-                printf("(%d)%s = %.2f $\n", conto[i], temppanini[i], prezzoPanini[i]);
+                printf(" Quantita - [%d] %s = %.2f $\n", conto[i], tipiPanini[i], prezzoPanini[i]);
             }
             else if (i >= 18)
             {
-                printf("(%d)%s= %.2f $\n", conto[i], temppanini[i - 18], prezzoBevande[i - 18]);
+                printf(" Quantita - [%d] %s = %.2f $\n", conto[i], tipibevande[i - 18], prezzoBevande[i - 18]);
             }
         }
     }
 
-    for (int i = 0; i < nbevande + nPanini; i++)
+    for (int i = 0; i < nPanini + nbevande; i++)
     {
         if (conto[i] > 0)
         {
@@ -234,14 +236,9 @@ int scontrino()
             }
         }
     }
-    printf("Costo totale %.2f\n", clienti[nClienti]);
+    printf("Importo da pagare: %2.f $\n", clienti[nClienti]);
     nClienti += 1;
-    for (int i = 0; i < 24; i++)
-    {
-        conto[i] = 0;
-    }
-
-
+    scanf_s("%d", &temp);
 }
 
 int sconto()
@@ -260,9 +257,22 @@ int sconto()
             couponOn = false;
         }
     }
+    return 0;
 }
 
-
+int profitto()
+{   
+    clear();
+    int i = 0;
+    while (clienti[i] > 0)
+    {
+        incasso += clienti[i];
+        i++;
+    }
+    printf("Clienti totali %d\n", i);
+    printf("Incasso totale della giornata %2.f\n $", incasso);
+    system("pause");
+}
 
 int clear()
 {
