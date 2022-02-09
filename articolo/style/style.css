@@ -10,7 +10,8 @@ body
     margin-right: auto;
 }
 
-.mainLogo{
+.mainLogo 
+{
     position: absolute;
     width: 174px;
     height: 86px;
@@ -22,11 +23,8 @@ body
     position: absolute;
     width: 817px;
     height: 16px;
-    left: 490px;
     top: 92px;
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 16px;
+    margin-left: 490px;
 }
 .menuBar li
 {
@@ -39,29 +37,36 @@ body
     color: #000;
 }
 .mainPg
-{   
-    position: absolute;
-    width: 100%; 
+{
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 .titolo
 {
     width: 770px;
-    height: 145px;
-    left: 608px;
-    top: 185px; 
+    margin-left: 608px;
+    margin-right: 542px;
+    margin-top: 185px;
+    font-style: normal;
+    font-weight: 600;
     font-size: 40px;
+    line-height: 50px;
+}
+.iceImg
+{
+    width: 700px;
+    height: 373px;
+    margin-left: 610px;
+    margin-right: 367px;
 }
 .articleText
-{   
-    position: absolute;
+{
     width: 620px;
     height: 422px;
-    left: 650px;
-    top: 777px;
+    margin-left: auto;
+    margin-right: auto;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
-    line-height: 22px;
 }
