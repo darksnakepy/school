@@ -25,11 +25,13 @@ body
     height: 16px;
     top: 92px;
     margin-left: 490px;
+    padding-left: 16px;
 }
 .menuBar li
 {
     display: inline-block;
     list-style: none;
+    margin-right: 20px;
 }
 .menuBar a
 {
@@ -64,8 +66,8 @@ body
 {
     width: 620px;
     height: 422px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 650px;
+    margin-right: 650px;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
