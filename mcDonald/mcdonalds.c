@@ -1,11 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
-#define nPanini 18
-#define nbevande 6
-#define maxlength 100
-#define tempclienti 1000
-#define ncoupon 3
+#define nPanini 18 // numero dei tipi di prodotti (panini e patatine/nuggets)
+#define nbevande 6 // numero dei tipi di bevande
+#define maxlength 100 // secondo indice dell'array di char per la massima lunghezza di ogni carattere
+#define tempclienti 1000 // max  clienti 
+#define ncoupon 5 // numero dei coupon
 
 // dichiaro le funzioni
 int clear();
@@ -20,13 +20,14 @@ int addScorte();
 int profitto();
 
 // variabili globali 
-int tempbevande[nbevande]={ 10, 10, 10, 10, 10, 10 };
-int temppanini[nPanini] = { 10, 10, 10, 10, 10, 10, 10, 10,10, 10, 10, 10,10, 10, 10, 10,10, 10 };
+int tempbevande[nbevande];
+int temppanini[nPanini];
 int conto[24];
-float clienti[tempclienti];
+float prezzo[tempclienti]; // prezzo che verra' mostrato 
 bool couponOn = false;
 int nClienti = 0;
 float incasso = 0;
+int couponChoice[ncoupon];
 
 float prezzoPanini[nPanini] = { 6.40, 8.10, 8.60, 8.60, 8.60, 6.70, 2.90, 1.80, 1.30, 4.50, 6.40, 2.90, 1.80, 2.40, 2.90, 1.80, 1.90, 5.60 };
 float prezzoBevande[nbevande] = { 1.50, 2.80, 0.55, 2.80, 2.80, 1.90 };
@@ -65,9 +66,11 @@ char tipibevande[nbevande][maxlength] =
 
 char coupon[ncoupon][maxlength] =
 {
-    {"COFHP"},
-    {"WOKLI"},
-    {"JTGOA"}
+    {"DKRTV"},
+    {"JCLMD"},
+    {"HARNM"},
+    {"YFWBD"},
+    {"LXHUT"} 
 };
 
 int main()
@@ -101,7 +104,7 @@ int staffpage()
 {
     clear();
     int choice;
-    printf("\n [1] - Aggiungi Scorte\n [2] - Profitti della giornata\n [3] - Torna indietro\n\n>");
+    printf("\n [1] - Aggiungi Scorte\n [2] - Incassi della giornata\n [3] - Torna al menu\n\n>");
     scanf_s("%d", &choice);
     return choice;
 }
@@ -228,17 +231,28 @@ int scontrino()
         {
             if (i < 18)
             {
-                clienti[nClienti] += prezzoPanini[i] * conto[i];
+                prezzo[nClienti] += prezzoPanini[i] * conto[i];
             }
             else if (i >= 18)
             {
-                clienti[nClienti] += prezzoBevande[i - 18] * conto[i];
+                prezzo[nClienti] += prezzoBevande[i - 18] * conto[i];
             }
         }
     }
-    printf("Importo da pagare: %2.f $\n", clienti[nClienti]);
+    sconto();
+    if (couponOn == true)
+    {
+        for (int i = 0; i < ncoupon; i++)
+        {
+            if (couponChoice[i] > 1)
+            {
+                prezzo[nClienti] =- 0.25;
+            }
+        }
+    }
+    printf("Importo totale da pagare: %2.f $\n", prezzo[nClienti]);
     nClienti += 1;
-    scanf_s("%d", &temp);
+    system("pause");
 }
 
 int sconto()
@@ -250,6 +264,8 @@ int sconto()
     {
         if (strcmp(coupon[i], scegliCoupon) == 0)
         {
+            printf("Coupon Valido!\n");
+            couponChoice[i] += 1;
             couponOn = true;
         }
         else
@@ -264,16 +280,15 @@ int profitto()
 {   
     clear();
     int i = 0;
-    while (clienti[i] > 0)
+    while (prezzo[i] > 0)
     {
-        incasso += clienti[i];
+        incasso += prezzo[i];
         i++;
     }
-    printf("Clienti totali %d\n", i);
-    printf("Incasso totale della giornata %2.f\n $", incasso);
+    printf("Clienti totali: %d\n", i);
+    printf("Incasso totale della giornata: %2.f\n $", incasso);
     system("pause");
 }
-
 int clear()
 {
     #ifdef _WIN32   
