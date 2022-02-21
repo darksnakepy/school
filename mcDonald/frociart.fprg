@@ -1,0 +1,351 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="INF 03"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-02-20 02:44:02 PM"/>
+        <attribute name="created" value="SU5GIDAzO0xBQklORjAzOzIwMjItMDItMTI7IjA4OjI0OjAxICI7MjA2MA=="/>
+        <attribute name="edited" value="SU5GIDAzO0xBQklORjAzOzIwMjItMDItMTI7IjA4OjQ3OjE1ICI7OTtnYWJyaTtERVNLVE9QLTM3OU1BTDc7MjAyMi0wMi0wNjswNDozMjoxMiBQTTtmcHJnLmZwcmc7NjAxOA=="/>
+        <attribute name="edited" value="SU5GIDAzO0xBQklORjAzOzIwMjItMDItMTI7IjA5OjQ0OjIxICI7MTY7MjIyNw=="/>
+        <attribute name="edited" value="RGFya1NuYWtlMjI7REVTS1RPUC1MQTZMS0w3OzIwMjItMDItMjA7MDE6NTE6MTAgUE07NjtnYWJyaTtERVNLVE9QLTM3OU1BTDc7MjAyMi0wMi0wNjswNDozMjoxMiBQTTtmbG93LmZwcmc7NzI2MA=="/>
+        <attribute name="edited" value="RGFya1NuYWtlMjI7REVTS1RPUC1MQTZMS0w3OzIwMjItMDItMjA7MDI6NDQ6MDIgUE07MjU7MzQ3Mg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="ncoupon" type="Integer" array="False" size=""/>
+            <assign variable="ncoupon" expression="5"/>
+            <declare name="couponOn" type="Boolean" array="False" size=""/>
+            <declare name="couponChoice" type="Integer" array="True" size="ncoupon"/>
+            <assign variable="couponOn" expression="false"/>
+            <declare name="num" type="Integer" array="False" size=""/>
+            <assign variable="num" expression="1"/>
+            <declare name="choice" type="Integer" array="False" size=""/>
+            <assign variable="choice" expression="0"/>
+            <declare name="scorte" type="Integer" array="False" size=""/>
+            <assign variable="scorte" expression="1"/>
+            <declare name="scegliCoupon" type="String" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <assign variable="i" expression="0"/>
+            <declare name="nPanini" type="Integer" array="False" size=""/>
+            <assign variable="nPanini" expression="18"/>
+            <declare name="nbevande" type="Integer" array="False" size=""/>
+            <assign variable="nbevande" expression="6"/>
+            <declare name="tempclienti" type="Integer" array="False" size=""/>
+            <assign variable="tempclienti" expression="1000"/>
+            <declare name="prezzo" type="Real" array="True" size="tempclienti"/>
+            <declare name="temppanini" type="Integer" array="True" size="nPanini"/>
+            <for variable="i" start="0" end="nPanini - 1" direction="inc" step="1">
+                <assign variable="temppanini[i]" expression="0"/>
+            </for>
+            <declare name="tempbevande" type="Integer" array="True" size="nbevande"/>
+            <for variable="i" start="0" end="nbevande - 1" direction="inc" step="1">
+                <assign variable="tempbevande[i]" expression="0"/>
+            </for>
+            <declare name="prezzoPanini" type="Real" array="True" size="nPanini"/>
+            <declare name="prezzoBevande" type="Real" array="True" size="nbevande"/>
+            <declare name="tipiPanini" type="String" array="True" size="nPanini"/>
+            <declare name="tipiBevande" type="String" array="True" size="nbevande"/>
+            <declare name="clienti" type="Real" array="True" size="1000"/>
+            <for variable="i" start="0" end="tempclienti - 1" direction="inc" step="1">
+                <assign variable="clienti[i]" expression="0"/>
+            </for>
+            <declare name="nClienti" type="Integer" array="False" size=""/>
+            <assign variable="nClienti" expression="0"/>
+            <declare name="incasso" type="Real" array="False" size=""/>
+            <assign variable="incasso" expression="0"/>
+            <declare name="conto" type="Integer" array="True" size="24"/>
+            <for variable="i" start="0" end="24-1" direction="inc" step="1">
+                <assign variable="conto[i]" expression="0"/>
+            </for>
+            <declare name="coupon" type="String" array="True" size="ncoupon"/>
+            <assign variable="tipiPanini[0]" expression="&quot;Big Mac&quot;"/>
+            <assign variable="tipiPanini[1]" expression="&quot;Gran Crispy&quot;"/>
+            <assign variable="tipiPanini[2]" expression="&quot;Chicken Asiago&quot;"/>
+            <assign variable="tipiPanini[3]" expression="&quot;Montasio &amp; Pancetta&quot;"/>
+            <assign variable="tipiPanini[4]" expression="&quot;BBQ&quot;"/>
+            <assign variable="tipiPanini[5]" expression="&quot;Crispy McBacon&quot;"/>
+            <assign variable="tipiPanini[6]" expression="&quot;Double Cheesebuger&quot;"/>
+            <assign variable="tipiPanini[7]" expression="&quot;Cheeseburger&quot;"/>
+            <assign variable="tipiPanini[8]" expression="&quot;Hamburger&quot;"/>
+            <assign variable="tipiPanini[9]" expression="&quot;Gluten Free Burger&quot;"/>
+            <assign variable="tipiPanini[10]" expression="&quot;McChicken Originale&quot;"/>
+            <assign variable="tipiPanini[11]" expression="&quot;Double Chicken BBQ&quot;"/>
+            <assign variable="tipiPanini[12]" expression="&quot;Chickenburger&quot;"/>
+            <assign variable="tipiPanini[13]" expression="&quot;McMuffin Bacon Egg&quot;"/>
+            <assign variable="tipiPanini[14]" expression="&quot;Filet O Fish&quot;"/>
+            <assign variable="tipiPanini[15]" expression="&quot;McToast&quot;"/>
+            <assign variable="tipiPanini[16]" expression="&quot;Patatine&quot;"/>
+            <assign variable="tipiPanini[17]" expression="&quot;6 Chicken Nuggets&quot;"/>
+            <assign variable="tipibevande[0]" expression="&quot;Acqua&quot;"/>
+            <assign variable="tipibevande[1]" expression="&quot;Coca Cola&quot;"/>
+            <assign variable="tipibevande[2]" expression="&quot;Pepsi&quot;"/>
+            <assign variable="tipibevande[3]" expression="&quot;Fanta&quot;"/>
+            <assign variable="tipibevande[4]" expression="&quot;Sprite&quot;"/>
+            <assign variable="tipibevande[5]" expression="&quot;Mountain Dew&quot;"/>
+            <assign variable="coupon[0]" expression="&quot;DKRTV&quot;"/>
+            <assign variable="coupon[1]" expression="&quot;JCLMD&quot;"/>
+            <assign variable="coupon[2]" expression="&quot;HARNM&quot;"/>
+            <assign variable="coupon[3]" expression="&quot;YFWBD&quot;"/>
+            <assign variable="coupon[4]" expression="&quot;LXHUT&quot;"/>
+            <assign variable="prezzoPanini[0]" expression="6.40"/>
+            <assign variable="prezzoPanini[1]" expression="8.10"/>
+            <assign variable="prezzoPanini[2]" expression="8.60"/>
+            <assign variable="prezzoPanini[3]" expression="8.60"/>
+            <assign variable="prezzoPanini[4]" expression="8.60"/>
+            <assign variable="prezzoPanini[5]" expression="6.70"/>
+            <assign variable="prezzoPanini[6]" expression="2.90"/>
+            <assign variable="prezzoPanini[7]" expression="1.80"/>
+            <assign variable="prezzoPanini[8]" expression="1.30"/>
+            <assign variable="prezzoPanini[9]" expression="4.50"/>
+            <assign variable="prezzoPanini[10]" expression="6.40"/>
+            <assign variable="prezzoPanini[11]" expression="2.90"/>
+            <assign variable="prezzoPanini[12]" expression="1.80"/>
+            <assign variable="prezzoPanini[13]" expression="2.40"/>
+            <assign variable="prezzoPanini[14]" expression="2.90"/>
+            <assign variable="prezzoPanini[15]" expression="1.80"/>
+            <assign variable="prezzoPanini[16]" expression="1.90"/>
+            <assign variable="prezzoPanini[17]" expression="5.60"/>
+            <assign variable="prezzoBevande[0]" expression="1.50"/>
+            <assign variable="prezzoBevande[1]" expression="2.80"/>
+            <assign variable="prezzoBevande[2]" expression="0.55"/>
+            <assign variable="prezzoBevande[3]" expression="2.80"/>
+            <assign variable="prezzoBevande[4]" expression="2.80"/>
+            <assign variable="prezzoBevande[5]" expression="1.90"/>
+            <do expression="true">
+                <assign variable="choice" expression="0"/>
+                <output expression="&quot;Benvenuto a McDonald. Cosa Scegli [1] - Acquista [2] - Sezione Staff/Scorte&quot;" newline="True"/>
+                <input variable="choice"/>
+                <if expression="choice==1">
+                    <then>
+                        <assign variable="choice" expression="0"/>
+                        <do expression="choice != 25">
+                            <for variable="i" start="0" end="nPanini - 1" direction="inc" step="1">
+                                <if expression="temppanini[i]&gt;0">
+                                    <then>
+                                        <output expression="&quot;[&quot;" newline="False"/>
+                                        <output expression="i" newline="False"/>
+                                        <output expression="&quot;]&quot;" newline="False"/>
+                                        <output expression="tipiPanini[i]" newline="True"/>
+                                        <output expression="&quot;[&quot;" newline="False"/>
+                                        <output expression="&quot;Scorte= &quot;" newline="False"/>
+                                        <output expression="&quot;(&quot;" newline="True"/>
+                                        <output expression="temppanini[i]" newline="True"/>
+                                        <output expression="&quot;)&quot;" newline="False"/>
+                                        <output expression="&quot;Costo = &quot;" newline="False"/>
+                                        <output expression="prezzoPanini[i]" newline="False"/>
+                                    </then>
+                                    <else/>
+                                </if>
+                            </for>
+                            <for variable="i" start="0" end="nbevande - 1" direction="inc" step="1">
+                                <if expression="tempbevande[i]&gt;0">
+                                    <then>
+                                        <output expression="&quot;[&quot;" newline="False"/>
+                                        <output expression="i + 18" newline="False"/>
+                                        <output expression="&quot;]&quot;" newline="False"/>
+                                        <output expression="tipibevande[i]" newline="True"/>
+                                        <output expression="&quot;[&quot;" newline="False"/>
+                                        <output expression="&quot;Scorte= &quot;" newline="False"/>
+                                        <output expression="&quot;(&quot;" newline="True"/>
+                                        <output expression="tempbevande[i]" newline="True"/>
+                                        <output expression="&quot;)&quot;" newline="False"/>
+                                        <output expression="&quot;Costo = &quot;" newline="False"/>
+                                        <output expression="prezzoBevande" newline="False"/>
+                                    </then>
+                                    <else/>
+                                </if>
+                            </for>
+                            <output expression="&quot;[24] Scontrino&quot;" newline="True"/>
+                            <input variable="choice"/>
+                            <if expression="choice &lt; 24">
+                                <then>
+                                    <if expression="choice &lt; 18 &amp;&amp; temppanini[choice]">
+                                        <then>
+                                            <assign variable="temppanini[choice]" expression="temppanini[choice]-1"/>
+                                            <assign variable="conto[choice]" expression="conto[choice] + 1"/>
+                                        </then>
+                                        <else>
+                                            <if expression="choice &gt;= 18 &amp;&amp; tempbevande[choice] &gt; 0">
+                                                <then>
+                                                    <assign variable="tempbevande[choice - 18]" expression="tempbevande[choice - 18] - 1"/>
+                                                    <assign variable="conto[choice]" expression="conto[choice] + 1"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="choice == 24">
+                                        <then>
+                                            <output expression="&quot;Ecco lo scontrino: &quot;" newline="True"/>
+                                            <for variable="i" start="0" end="nPanini + nBevande - 1" direction="inc" step="1">
+                                                <if expression="conto[i] &gt; 0">
+                                                    <then>
+                                                        <if expression="i &lt; 18">
+                                                            <then>
+                                                                <output expression="&quot;]&quot;" newline="False"/>
+                                                                <output expression="conto[i]" newline="False"/>
+                                                                <output expression="&quot;] &quot;" newline="False"/>
+                                                                <output expression="tipiPanini[i]" newline="False"/>
+                                                                <output expression="&quot; = &quot;" newline="True"/>
+                                                                <output expression="prezzoPanini[i]" newline="True"/>
+                                                            </then>
+                                                            <else/>
+                                                        </if>
+                                                        <if expression="i &gt;= 18">
+                                                            <then>
+                                                                <output expression="&quot;Quantita &quot;" newline="False"/>
+                                                                <output expression="&quot;(&quot;" newline="False"/>
+                                                                <output expression="conto[i]" newline="False"/>
+                                                                <output expression="&quot;) &quot;" newline="False"/>
+                                                                <output expression="tipiBevande[i - 18]" newline="False"/>
+                                                                <output expression="&quot; = &quot;" newline="True"/>
+                                                                <output expression="prezzoBevande[i - 18]" newline="True"/>
+                                                            </then>
+                                                            <else/>
+                                                        </if>
+                                                    </then>
+                                                    <else/>
+                                                </if>
+                                            </for>
+                                            <for variable="i" start="0" end="nPanini + nBevande -1" direction="inc" step="1">
+                                                <if expression="conto[i] &gt; 0">
+                                                    <then>
+                                                        <if expression="i &lt; 18">
+                                                            <then>
+                                                                <assign variable="prezzo[nClienti]" expression="prezzoPanini[i] * conto[i]"/>
+                                                            </then>
+                                                            <else/>
+                                                        </if>
+                                                        <if expression="i &gt;= 18">
+                                                            <then>
+                                                                <assign variable="prezzo[nClienti]" expression="prezzoBevande[i - 18] * conto[i]"/>
+                                                            </then>
+                                                            <else/>
+                                                        </if>
+                                                    </then>
+                                                    <else/>
+                                                </if>
+                                            </for>
+                                            <output expression="&quot;Hai la possibilita di inserire un coupon di sconto. Se non ne hai premi 0&quot;" newline="True"/>
+                                            <input variable="scegliCoupon"/>
+                                            <assign variable="couponOn" expression="false"/>
+                                            <for variable="i" start="0" end="NCOUPON - 1" direction="inc" step="1">
+                                                <if expression="coupon[i] == scegliCoupon">
+                                                    <then>
+                                                        <assign variable="couponChoice[i]" expression="couponChoice[i] + 1"/>
+                                                        <assign variable="couponOn" expression="true"/>
+                                                    </then>
+                                                    <else/>
+                                                </if>
+                                            </for>
+                                            <if expression="couponOn == true">
+                                                <then>
+                                                    <for variable="i" start="0" end="ncoupon - 1" direction="inc" step="1">
+                                                        <if expression="couponChoice[i] &gt; 1">
+                                                            <then>
+                                                                <assign variable="prezzo[nClienti]" expression="prezzo[nClienti] - 0.25"/>
+                                                            </then>
+                                                            <else/>
+                                                        </if>
+                                                    </for>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                            <output expression="&quot;Importo totale da pagare: &quot;" newline="True"/>
+                                            <output expression="prezzo[nClienti]" newline="True"/>
+                                            <assign variable="nClienti" expression="nClienti + 1"/>
+                                            <for variable="i" start="0" end="23" direction="inc" step="1">
+                                                <assign variable="conto[i]" expression="0"/>
+                                            </for>
+                                            <input variable="choice"/>
+                                            <assign variable="choice" expression="24"/>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </else>
+                            </if>
+                        </do>
+                    </then>
+                    <else>
+                        <if expression="choice==2">
+                            <then>
+                                <assign variable="choice" expression="0"/>
+                                <output expression="&quot;[1] - Aggiungi Scorte [2] - Incassi della giornata [3] - Torna al menu&quot;" newline="True"/>
+                                <input variable="choice"/>
+                                <if expression="choice == 1">
+                                    <then>
+                                        <assign variable="choice" expression="0"/>
+                                        <assign variable="scorte" expression="1"/>
+                                        <do expression="choice != 25">
+                                            <output expression="&quot;Quale vuoi aggiungere?&quot;" newline="True"/>
+                                            <for variable="i" start="0" end="nPanini - 1" direction="inc" step="1">
+                                                <output expression="&quot;[&quot;" newline="False"/>
+                                                <output expression="i" newline="False"/>
+                                                <output expression="&quot;] &quot;" newline="False"/>
+                                                <output expression="tipiPanini[i]" newline="True"/>
+                                            </for>
+                                            <for variable="i" start="0" end="nbevande - 1" direction="inc" step="1">
+                                                <output expression="&quot;[&quot;" newline="False"/>
+                                                <output expression="i + 18" newline="False"/>
+                                                <output expression="&quot;] &quot;" newline="False"/>
+                                                <output expression="tipiBevande[i]" newline="True"/>
+                                            </for>
+                                            <output expression="&quot;24 Scegli il numero di scorte da aggiungere&quot;" newline="False"/>
+                                            <output expression="&quot;Default = &quot;" newline="True"/>
+                                            <output expression="scorte" newline="True"/>
+                                            <output expression="&quot;Quali numeri vuoi aggiungere? [Premere 25 per uscire]&quot;" newline="True"/>
+                                            <input variable="choice"/>
+                                            <if expression="choice == 24">
+                                                <then>
+                                                    <assign variable="choice" expression="0"/>
+                                                    <output expression="&quot;Inserisci quante scorte vuoi aggiungere&quot;" newline="True"/>
+                                                    <input variable="num"/>
+                                                    <assign variable="scorte" expression="num"/>
+                                                </then>
+                                                <else>
+                                                    <if expression="choice &lt; 18">
+                                                        <then>
+                                                            <assign variable="temppanini[choice]" expression="temppanini[choice] + scorte"/>
+                                                        </then>
+                                                        <else>
+                                                            <if expression="choice &gt;= 18 &amp;&amp; choice &lt; 24">
+                                                                <then>
+                                                                    <assign variable="tempbevande[choice - 18]" expression="tempbevande[choice - 18] + 1"/>
+                                                                </then>
+                                                                <else/>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </else>
+                                            </if>
+                                        </do>
+                                    </then>
+                                    <else>
+                                        <if expression="choice == 2">
+                                            <then>
+                                                <while expression="prezzo[i] &gt; 0">
+                                                    <assign variable="incasso" expression="incasso + prezzo[i]"/>
+                                                    <assign variable="i" expression="i + 1"/>
+                                                </while>
+                                                <output expression="&quot;Clienti totali &quot;" newline="False"/>
+                                                <output expression="i" newline="True"/>
+                                                <output expression="&quot;Incasso totale della giornata &quot;" newline="False"/>
+                                                <output expression="incasso" newline="False"/>
+                                            </then>
+                                            <else/>
+                                        </if>
+                                    </else>
+                                </if>
+                            </then>
+                            <else/>
+                        </if>
+                    </else>
+                </if>
+            </do>
+        </body>
+    </function>
+</flowgorithm>
