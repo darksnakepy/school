@@ -1,1 +1,207 @@
+body
+{
+    margin: 0%;
+}
+.upcontainer
+{
+    width: 100%;
+    background-image: url("../imgs/night-mountain1.png");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+.upBar
+{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.upBar li
+{
+    display: inline-block;
+    padding-right: 4.16%;
+}
+.upBar ul
+{
+    padding-left: 0%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    list-style: none;
+    margin: 0%;
+    padding-top: 25px;
+}
+.upBar a 
+{
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+}
 
+.upBar li:first-child
+{
+    text-decoration: underline;
+}
+.upBar li:last-child
+{
+    padding: 0%;
+}
+
+.upTitle
+{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 96px;
+    line-height: 110px;
+    padding-top: 61.88vh;
+    margin: 0%;
+}
+
+.upTitle span
+{
+    text-decoration: underline;
+    font-style: italic;
+}
+.upTitle 
+{
+    width: 61.80555555555556%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.introAr
+{
+    width: 61.80555555555556%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.introAr h2
+{
+    width: 61.80555555555556%;
+    margin-top: 65px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 54px;
+    line-height: 62px;
+    color: #464646;
+    margin-bottom: 30px;
+}
+
+.aut img
+{
+    margin: 0%;
+    border-radius: 210px;
+}
+.aut h3
+{
+    margin-top: 10px;
+    font-family: Crimson Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 24px;
+    color: #464646;
+}
+.aut h3 span
+{
+    font-weight: 700;
+}
+.articleImg
+{
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 0%;
+}
+
+.mainArticle
+{
+    width: 49.30555555555556%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mainArticle *
+{
+    font-family: Crimson Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.mainArticle ol
+{
+    padding-left: 0%;
+}
+
+.mainArticle li
+{
+    margin: 0%;
+}
+
+.mainArticle p:first-child
+{
+    margin-top: 60px;
+}
+
+.mainArticle p:last-child
+{
+    margin-bottom: 0px;
+}
+
+.socials h4
+{
+    margin-top: 102px;
+    font-family: Crimson Pro;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 27px;
+    color: #000000;
+    margin-bottom: 0%;
+    text-align: center;
+}
+
+.socials ul
+{
+    margin-top: 25px;
+    list-style: none;
+    padding-left: 0%;
+    margin-bottom: 0%;
+    text-align: center;
+    width: 100%;
+    align-items: center;
+}
+
+.socials li
+{
+    align-items: center;
+    height: 18px;
+    display: inline-block;
+}
+
+.credits p
+{
+    padding-top: 18px;
+    margin-top: 74px;
+    margin-bottom: 18px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #000000;
+    border-top: #000000 solid 1px;
+}
