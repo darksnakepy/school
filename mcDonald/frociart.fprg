@@ -4,13 +4,13 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="INF 03"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2022-03-03 07:18:52 PM"/>
+        <attribute name="saved" value="2022-03-05 09:54:16 "/>
         <attribute name="created" value="SU5GIDAzO0xBQklORjAzOzIwMjItMDItMTI7IjA4OjI0OjAxICI7MjA2MA=="/>
-        <attribute name="edited" value="SU5GIDAzO0xBQklORjAzOzIwMjItMDItMTI7IjA5OjQ0OjIxICI7MTY7MjIyNw=="/>
         <attribute name="edited" value="RGFya1NuYWtlMjI7REVTS1RPUC1MQTZMS0w3OzIwMjItMDItMjA7MDE6NTE6MTAgUE07NjtnYWJyaTtERVNLVE9QLTM3OU1BTDc7MjAyMi0wMi0wNjswNDozMjoxMiBQTTtmbG93LmZwcmc7NzI2MA=="/>
         <attribute name="edited" value="RGFya1NuYWtlMjI7REVTS1RPUC1MQTZMS0w3OzIwMjItMDItMjA7MDI6NDQ6MDIgUE07MjU7MzQ3Mg=="/>
         <attribute name="edited" value="RGFya1NuYWtlMjI7REVTS1RPUC1OMURBRkdPOzIwMjItMDMtMDM7MDc6MDA6MjQgUE07MTE7RGFya1NuYWtlMjI7REVTS1RPUC1OMURBRkdPOzIwMjItMDMtMDM7MDY6Mzk6NTIgUE07dmFyaWFibGVzLmZwcmc7ODM0OQ=="/>
         <attribute name="edited" value="RGFya1NuYWtlMjI7REVTS1RPUC1OMURBRkdPOzIwMjItMDMtMDM7MDc6MTg6NTIgUE07NDk7MzQ5NA=="/>
+        <attribute name="edited" value="SU5GMDI7TEFCSU5GMDI7MjAyMi0wMy0wNTsiMDk6NTQ6MTYgIjsyOTsyMjA1"/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
@@ -117,6 +117,7 @@
                     <then>
                         <assign variable="choice" expression="0"/>
                         <do expression="choice != 25">
+                            <assign variable="choice" expression="1"/>
                             <for variable="i" start="0" end="nPanini - 1" direction="inc" step="1">
                                 <if expression="temppanini[i]&gt;0">
                                     <then>
@@ -127,7 +128,8 @@
                                         <output expression="&quot;Scorte= &quot;" newline="False"/>
                                         <output expression="temppanini[i]" newline="False"/>
                                         <output expression="&quot; Costo = &quot;" newline="False"/>
-                                        <output expression="prezzoPanini[i]" newline="True"/>
+                                        <output expression="prezzoPanini[i]" newline="False"/>
+                                        <output expression="&quot; Euro&quot;" newline="True"/>
                                     </then>
                                     <else/>
                                 </if>
@@ -139,11 +141,12 @@
                                         <output expression="i + 18" newline="False"/>
                                         <output expression="&quot;]&quot;" newline="False"/>
                                         <output expression="tipibevande[i]" newline="False"/>
+                                        <output expression="&quot; Scorte= &quot;" newline="False"/>
                                         <output expression="&quot;[&quot;" newline="False"/>
-                                        <output expression="&quot;Scorte= &quot;" newline="False"/>
                                         <output expression="tempbevande[i]" newline="False"/>
+                                        <output expression="&quot;]&quot;" newline="False"/>
                                         <output expression="&quot;Costo = &quot;" newline="False"/>
-                                        <output expression="prezzoBevande[i]" newline="True"/>
+                                        <output expression="prezzoBevande[i]" newline="False"/>
                                         <output expression="&quot; Euro&quot;" newline="True"/>
                                     </then>
                                     <else/>
@@ -153,18 +156,25 @@
                             <input variable="choice"/>
                             <if expression="choice &lt; 24">
                                 <then>
-                                    <if expression="choice &lt; 18 &amp;&amp; temppanini[choice] &gt; 0">
+                                    <if expression="choice &lt; 18">
                                         <then>
-                                            <assign variable="temppanini[choice]" expression="temppanini[choice]-1"/>
-                                            <assign variable="conto[choice]" expression="conto[choice] + 1"/>
+                                            <if expression="choice &lt; 18 &amp;&amp; temppanini[choice] &gt; 0">
+                                                <then>
+                                                    <assign variable="temppanini[choice]" expression="temppanini[choice]-1"/>
+                                                    <assign variable="conto[choice]" expression="conto[choice]+1"/>
+                                                </then>
+                                                <else/>
+                                            </if>
                                         </then>
                                         <else>
-                                            <if expression="choice &gt;= 18 &amp;&amp; tempbevande[choice] &gt; 0">
+                                            <if expression="choice &gt;= 18 &amp;&amp; tempbevande[choice - 18] &gt; 0">
                                                 <then>
                                                     <assign variable="tempbevande[choice - 18]" expression="tempbevande[choice - 18] - 1"/>
                                                     <assign variable="conto[choice]" expression="conto[choice] + 1"/>
                                                 </then>
-                                                <else/>
+                                                <else>
+                                                    <output expression="&quot;Scorte esaurite&quot;" newline="True"/>
+                                                </else>
                                             </if>
                                         </else>
                                     </if>
@@ -178,7 +188,7 @@
                                                     <then>
                                                         <if expression="i &lt; 18">
                                                             <then>
-                                                                <output expression="&quot;]&quot;" newline="False"/>
+                                                                <output expression="&quot;[&quot;" newline="False"/>
                                                                 <output expression="conto[i]" newline="False"/>
                                                                 <output expression="&quot;] &quot;" newline="False"/>
                                                                 <output expression="tipiPanini[i]" newline="False"/>
@@ -189,10 +199,9 @@
                                                         </if>
                                                         <if expression="i &gt;= 18">
                                                             <then>
-                                                                <output expression="&quot;Quantita &quot;" newline="False"/>
-                                                                <output expression="&quot;(&quot;" newline="False"/>
+                                                                <output expression="&quot;[&quot;" newline="False"/>
                                                                 <output expression="conto[i]" newline="False"/>
-                                                                <output expression="&quot;) &quot;" newline="False"/>
+                                                                <output expression="&quot;] &quot;" newline="False"/>
                                                                 <output expression="tipiBevande[i - 18]" newline="False"/>
                                                                 <output expression="&quot; = &quot;" newline="False"/>
                                                                 <output expression="prezzoBevande[i - 18]" newline="True"/>
