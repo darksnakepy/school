@@ -70,7 +70,7 @@ char coupon[ncoupon][maxlength] =
     {"JCLMD"},
     {"HARNM"},
     {"YFWBD"},
-    {"LXHUT"} 
+    {"LXHUT"}
 };
 
 int main()
@@ -80,7 +80,7 @@ int main()
         clear();
         int choice = 0;
         printf("\n Benvenuto al McDonald's. Cosa Scegli\n\n [1] - Acquista\n [2] - Sezione Staff/Scorte\n\n>");
-        scanf_s("%d", &choice);
+        scanf("%d", &choice);
         switch (choice)
         {
         case 1: comprare();
@@ -90,7 +90,7 @@ int main()
         case 1: addScorte();
             break;
         case 2: profitto();
-                break;
+            break;
         case 3: break;
         }
         default: printf("Inserisci un altro numero\n");
@@ -105,7 +105,7 @@ int staffpage()
     clear();
     int choice;
     printf("\n [1] - Aggiungi Scorte\n [2] - Incassi della giornata\n [3] - Torna al menu\n\n>");
-    scanf_s("%d", &choice);
+    scanf("%d", &choice);
     return choice;
 }
 
@@ -126,7 +126,7 @@ int addScorte()
         }
         printf("24 Scegli il numero di scorte da aggiungere. Default = %d\n", scorte);
         printf("Quali numeri vuoi aggiungere? [Premere 25 per uscire]\n");
-        scanf_s("%d", &choice);
+        scanf("%d", &choice);
         if (choice == 24)
         {
             scorte = addNum();
@@ -147,7 +147,7 @@ int addNum()
     clear();
     int num = 1;
     printf("Inserisci quante scorte vuoi aggiungere\n");
-    scanf_s("%d", &num);
+    scanf("%d", &num);
     return num;
 }
 
@@ -158,7 +158,6 @@ int comprare()
 
     do
     {
-        clear();
         for (int i = 0; i < nPanini; i++)
         {
             if (temppanini[i] > 0)
@@ -175,7 +174,7 @@ int comprare()
             }
         }
         printf("\nInserisci il numero del prodotto che vuoi acquistare [Premere 24 per stampare lo scontrino]\n>");
-        scanf_s("%d", &choice);
+        scanf("%d", &choice);
 
         if (choice < 24)
         {
@@ -200,13 +199,13 @@ int comprare()
             scontrino();
         }
     } while (choice != 24);
-    
+
     return 0;
 
 }
 
 int scontrino()
-{   
+{
     int temp;
     clear();
     printf("Ecco lo scontrino:\n");
@@ -246,7 +245,7 @@ int scontrino()
         {
             if (couponChoice[i] > 1)
             {
-                prezzo[nClienti] =- 0.25;
+                prezzo[nClienti] = -0.25;
             }
         }
     }
@@ -256,7 +255,7 @@ int scontrino()
 }
 
 int sconto()
-{   
+{
     char scegliCoupon[maxlength] = { "" };
     printf("Hai la possibilita di inserire un coupon di sconto. Se non ne hai premi 0\n");
     scanf("%s", scegliCoupon);
@@ -277,7 +276,7 @@ int sconto()
 }
 
 int profitto()
-{   
+{
     clear();
     int i = 0;
     while (prezzo[i] > 0)
