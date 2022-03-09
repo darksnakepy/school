@@ -1,3 +1,20 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.color 
+{
+    font-size: 28px;
+    line-height: 32px;      
+    background-color: #FFFFFF;
+    font-style: normal;
+    font-weight: bold;
+    color: #000000;
+}
+
 .container
 {
     width: 100%;
@@ -6,4 +23,83 @@
     background-image: url(../imgs/background.png);
     background-size: cover;
     background-position: center;
+}
+
+.menuBar *
+{
+    font-family: Oswald;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.menuBar ul
+{
+    text-align: right;
+    padding-top: 6vh;
+}
+
+.menuBar li
+{
+    display: inline-block;
+    padding-right: 4.51%;
+}
+
+.menuBar li:last-child
+{
+    padding-right: 100px;
+}
+.menuBar
+{
+    margin-bottom: 28.7109375vh;
+}
+
+.mainTitle
+{
+    font-family: Roboto Mono;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 7.965554359526372vh;
+    line-height: 74px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.mainTitle::before
+{
+    width: 63.61111111111111vw;
+    content: "";
+    height: 3px;
+    background-color: #FFFFFF;
+    display: block;
+    margin: auto;
+    margin-bottom: 3.3203125vh;
+}
+
+.mainTitle::after
+{
+    width: 63.61111111111111vw;
+    content: "";
+    height: 3px;
+    background-color: #FFF;
+    display: block;
+    margin: auto;
+    margin-top: 3.3203125vh;
+}
+
+.button 
+{
+    font-family: Roboto Mono;
+    padding-top: 1.66015625vh;
+    padding-bottom: 1.66015625vh;
+    padding-left: 3.05555555555556%;
+    padding-right: 3.05555555555556%;
+    border: transparent;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3.3203125vh;
 }
