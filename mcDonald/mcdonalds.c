@@ -1,13 +1,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
-#define nPanini 18 // numero dei tipi di prodotti (panini e patatine/nuggets)
-#define nbevande 6 // numero dei tipi di bevande
-#define maxlength 100 // secondo indice dell'array di char per la massima lunghezza di ogni carattere
-#define tempclienti 1000 // max  clienti 
-#define ncoupon 5 // numero dei coupon
 
-// dichiaro le funzioni
+
+
+#define nPanini 18                  // numero dei tipi di prodotti (panini e patatine/nuggets)
+#define nbevande 6                  // numero dei tipi di bevande
+#define maxlength 100               // secondo indice dell'array di char per la massima lunghezza di ogni carattere
+#define tempclienti 1000            // max  clienti 
+#define ncoupon 5                   // numero dei coupon
+
+                                    // dichiaro le funzioni
 int clear();
 int welcome();
 int comprare();
@@ -20,14 +23,14 @@ int addScorte();
 int profitto();
 
 // variabili globali 
-int tempbevande[nbevande];
-int temppanini[nPanini];
-int conto[24];
-float prezzo[tempclienti]; // prezzo che verra' mostrato 
-bool couponOn = false;
+int tempbevande[nbevande];          //numero scorte delle bevande
+int temppanini[nPanini];            // numero di scorte dei panini
+int conto[24];                      //variabile per il conto
+float prezzo[tempclienti];          // prezzo che verra' mostrato 
+bool couponOn = false;              // bool per i coupon attivi/non attivi
 int nClienti = 0;
 float incasso = 0;
-int couponChoice[ncoupon];
+int couponChoice[ncoupon];          //input per il coupon con il check nella stringa "coupon"
 
 float prezzoPanini[nPanini] = { 6.40, 8.10, 8.60, 8.60, 8.60, 6.70, 2.90, 1.80, 1.30, 4.50, 6.40, 2.90, 1.80, 2.40, 2.90, 1.80, 1.90, 5.60 };
 float prezzoBevande[nbevande] = { 1.50, 2.80, 0.55, 2.80, 2.80, 1.90 };
@@ -183,7 +186,7 @@ int comprare()
                 temppanini[choice] -= 1;
                 conto[choice] += 1;
             }
-            else if (choice >= 18 && tempbevande[choice] > 0)
+            else if (choice >= 18 && tempbevande[choice - 18] > 0)
             {
                 tempbevande[choice - 18] -= 1;
                 conto[choice] += 1;
