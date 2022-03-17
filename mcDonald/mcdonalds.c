@@ -211,7 +211,6 @@ int scontrino()
 {
     int temp;
     clear();
-    printf("Ecco lo scontrino:\n");
     for (int i = 0; i < nPanini + nbevande; i++)
     {
         if (conto[i] > 0)
@@ -241,20 +240,25 @@ int scontrino()
             }
         }
     }
-    sconto();
-    if (couponOn == true)
+    if (prezzo[nClienti] > 0)
     {
-        for (int i = 0; i < ncoupon; i++)
+        printf("Scontrino: \n");
+        sconto();
+        if (couponOn == true)
         {
-            if (couponChoice[i] > 1)
+            for (int i = 0; i < ncoupon; i++)
             {
-                prezzo[nClienti] = -0.25;
+                if (couponChoice[i] > 1)
+                {
+                    prezzo[nClienti] -= 0,75;
+                }
             }
         }
+        printf("Importo totale da pagare: %f $\n", prezzo[nClienti]);
+        nClienti += 1;
+        system("pause");
     }
-    printf("Importo totale da pagare: %2.f $\n", prezzo[nClienti]);
-    nClienti += 1;
-    system("pause");
+
 }
 
 int sconto()
@@ -291,6 +295,7 @@ int profitto()
     printf("Incasso totale della giornata: %2.f\n $", incasso);
     system("pause");
 }
+
 int clear()
 {
     #ifdef _WIN32   
