@@ -250,11 +250,11 @@ int scontrino()
             {
                 if (couponChoice[i] > 1)
                 {
-                    prezzo[nClienti] -= 0,75;
+                    prezzo[nClienti] = prezzo[nClienti] - (0.25f * prezzo[nClienti]);
                 }
             }
         }
-        printf("Importo totale da pagare: %f $\n", prezzo[nClienti]);
+        printf("Importo totale da pagare: %.2f $\n", prezzo[nClienti]);
         nClienti += 1;
         system("pause");
     }
