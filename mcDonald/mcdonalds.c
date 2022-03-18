@@ -292,7 +292,7 @@ int profitto()
         i++;
     }
     printf("Clienti totali: %d\n", i);
-    printf("Incasso totale della giornata: %2.f\n $", incasso);
+    printf("Incasso totale della giornata:  %.2f\n $", incasso);
     system("pause");
 }
 
