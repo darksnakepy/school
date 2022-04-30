@@ -69,21 +69,21 @@ int registerUser()
                     scanf("%s> ", &cognomi[i]);
                     printf("Persona numero [%d], inserisci la tua data di nascita (Giorno)\n", i);
                     scanf("%s> ", &day[i]);
-                    if (day[i] > 31 || day[i] < 1)
+                    if (day[i] > 31 && day[i] < 1)
                     {
                         printf("Valore giorno inserito non corretto, reinserisci\n");
                         scanf("%d> ", &day[i]);
                     }
                     printf("Persona numero [%d], inserisci la tua data di nascita (Mese)\n", i);
                     scanf("%d> ", &month[i]);
-                    while (month[i] > 12 || month[i] < 1)
+                    while (month[i] > 12 && month[i] < 1)
                     {
                         printf("Valore mese inserito non corretto, reinserisci");
                         scanf("%d> ", &month[i]);
                     }
                     printf("Persona numero [%d], inserisci la tua data di nascita (Anno)\n", i);
                     scanf("%d> ", &year[i]);
-                    while (year[i] > 2022 || month[i] < 1900)
+                    while (year[i] > 2022 && month[i] < 1900)
                     {
                         printf("Valore anno inserito non corretto, reinserisci\n");
                         scanf("%d> ", &month[i]);
