@@ -28,13 +28,15 @@ int lungFamiglia[maxPersone];
 int familyCont = 0;
 int cabineOccupate[4];
 float prezzoFinale[maxPersone];
+bool cont = true;
 
 
 int main()
 {
     srand(time(NULL));
+    clear();
     int choice;
-    printf("\n Benvenuto nel programma di registrazione di Costa Crociera!\n [0] Registra utente e/o famiglia\n [1] Gestione staff\n\n >");
+    printf("\n Benvenuto nel programma di registrazione di Costa Crociera!\n [0] Registra utente e/o famiglia\n [1] Bar \n [2] Gestione staff\n\n >");
     scanf("%d", &choice);
     do
     {
@@ -47,6 +49,7 @@ int main()
             acquisto();
             break;
         case 2:
+            database();
             break;
 
         default:
@@ -54,33 +57,39 @@ int main()
             break;
         }
 
-    } while (true);
+    } while (cont);
 }
 
 int registerUser()
 {
-    clear();
+    
     int choice, i;
     bool cabinFull[4];
-    bool isFamily = true;
+
     do
     {
-        if (cabinePiene == false)
-        {
-            printf("[0] Registra famiglia o custom\n[1] Viaggia\n[3] Torna indietro\n");
-        }
+        clear();
         if (nPersone < 100)
         {
-            scanf("%d", &choice);  
-            clear();
-            if (choice == 0 && nPersone < 100)
+            if (cabinePiene == false)
             {
-                printf("Inserisci il numero di utenti che vuoi registrare\n");
-                scanf("%d", &family);
-                nPersone += family;
-                if (maxPersone - nPersone < 100)
+                printf("[0] Registra famiglia o custom\n");
+            }
+            printf("[1] Parti\n");
+            printf("[2] Torna indietro\n");
+            scanf("%d", &choice);
+            if (choice == 0 && nPersone < 100 && cabinePiene == false)
+            {
+                do
                 {
-                    for (i = totFamiglie ; i < family + totFamiglie; i++)
+                    printf("Inserisci il numero di utenti che vuoi registrare\n");
+                    scanf("%d", &family);
+
+                } while (family < 0 || family > 4);
+                ;
+                if (cabinePiene == false)
+                {
+                    for (i = totFamiglie; i < family + totFamiglie; i++)
                     {
                         printf("Persona numero [%d], perfavore inserire il nome\n", i);
                         scanf("%s> ", &nomi[i]);
@@ -184,56 +193,56 @@ int registerUser()
                     {
                         cabinePiene = true;
                     }
+                    else
+                    {
+                        printf("Non ci sono abbastanza posti\n");
+                        Sleep(1000);
+                    }
                 }
+
             }
-            else if(choice == 1)
+            else if (choice == 1)
             {
-                printf("Perfetto, Buon viaggio!");
+                printf("Perfetto, buon viaggio\n");
                 Sleep(1000);
                 main();
+                cont = false;
             }
-            else if(choice==3)
+            else if (choice == 2)
             {
                 main();
             }
-            else
-            {
-                printf("Scelta sbagliata!\n");
-                Sleep(5000);
-                registerUser();
-            }
         }
-    
-    }while (true);
-}
 
+    }while (cont);
+}
+    
 
 void database()
 {
+    int giglo = 0;
     int spesaFamiglia = 0;
 
     for (int i = 0; i < 4; i++)
     {
-        printf("Cabine da : [%d] persone - occupate da [%d]\n", i + 1, cabineOccupate[i]);
+        printf("Cabine da [%d] persone - occupate da [%d]\n", i + 1, cabineOccupate[i]);
     }
-    if (cabinePiene = true)
-    {
-        printf("La nave e' al completo!\n");
-    }
+
     for (int i = 0; i < familyCont; i++)
     {
         for (int j = 0; j < lungFamiglia[i]; j++)
         {
-            printf("[%d] Persona: \n", i + 1);
-            printf("Nome: [%s]\nCognome: [%s] \n", nomi[i], cognomi[i]);
-            printf("Data di nascita persona numero [%d]: %d %d %d", day[i], month[i], year[i]);
-            printf("Prezzo speso %.2f: ", spesaFamiglia);
-            spesaFamiglia = 0.0f;
-            
+
+            printf("Nome: [%s]\nCognome: [%s] \n", nomi[giglo], cognomi[giglo]);
+            printf("Data di nascita persona numero [%d]: %d %d %d", day[giglo], month[giglo], year[giglo]);
+            spesaFamiglia += prezzoFinale[giglo];
+            printf("Spesa totale: %.2f", prezzoFinale[giglo]);
         }
     }
-
+    cont = false;
 }
+
+
 
 void acquisto()
 {
@@ -241,6 +250,7 @@ void acquisto()
     {
         prezzoFinale[i] = ((double)rand() / RAND_MAX) * 400;
     }
+    main();
 }
 
 
