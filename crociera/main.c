@@ -189,7 +189,7 @@ int registerUser()
                         break;
                     }
 
-                    if (cabinFull[0] && cabinFull[1] && cabinFull[2] && cabinFull[3])
+                    if (cabinFull[0] && cabinFull[1] && cabinFull[2] && cabinFull[3] == true)
                     {
                         cabinePiene = true;
                     }
@@ -222,10 +222,11 @@ void database()
 {
     int giglo = 0;
     int spesaFamiglia = 0;
-
+    
+    printf("\n");
     for (int i = 0; i < 4; i++)
     {
-        printf("Cabine da [%d] persone - occupate da [%d]\n", i + 1, cabineOccupate[i]);
+        printf(" Cabine da [%d] persone - [%d]\n", i + 1, cabineOccupate[i]);
     }
 
     for (int i = 0; i < familyCont; i++)
@@ -233,15 +234,13 @@ void database()
         for (int j = 0; j < lungFamiglia[i]; j++)
         {
 
-            printf("Nome: [%s]\nCognome: [%s] \n", nomi[giglo], cognomi[giglo]);
-            printf("Data di nascita persona numero [%d]: %d %d %d", day[giglo], month[giglo], year[giglo]);
-            spesaFamiglia += prezzoFinale[giglo];
-            printf("Spesa totale: %.2f", prezzoFinale[giglo]);
+            printf("\n Nome: [%s]\nCognome: [%s] ", nomi[j], cognomi[j]);
+            printf("\n Data di nascita persona numero [%d]: %d %d %d", day[j], month[j], year[j]);
+            printf("\n Spesa totale: %.2f", prezzoFinale[j]);
         }
     }
     cont = false;
 }
-
 
 
 void acquisto()
@@ -258,5 +257,3 @@ void clear()
 {
     system("cls");
 }
-
-
