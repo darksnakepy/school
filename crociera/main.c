@@ -220,18 +220,19 @@ int registerUser()
 
 void database()
 {
+	int i, j;
     int giglo = 0;
     int spesaFamiglia = 0;
     
     printf("\n");
-    for (int i = 0; i < 4; i++)
+    for (i = 0; i < 4; i++)
     {
         printf(" Cabine da [%d] persone - [%d]\n", i + 1, cabineOccupate[i]);
     }
 
-    for (int i = 0; i < familyCont; i++)
+    for (i = 0; i < familyCont; i++)
     {
-        for (int j = 0; j < lungFamiglia[i]; j++)
+        for (j = 0; j < lungFamiglia[i]; j++)
         {
 
             printf("\n Nome: [%s]\nCognome: [%s] ", nomi[j], cognomi[j]);
@@ -245,7 +246,8 @@ void database()
 
 void acquisto()
 {
-    for (int i = 0; i < nPersone; i++)
+	int i;
+    for (i = 0; i < nPersone; i++)
     {
         prezzoFinale[i] = ((double)rand() / RAND_MAX) * 400;
     }
