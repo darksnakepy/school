@@ -1,1 +1,152 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
 
+#mainWrapper{
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header img {
+    height: 30px;
+}
+
+#col12{
+    width: 75%;
+    max-width: 1075px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* menu bar elements */
+.italic{
+    font-style: italic;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+header div:nth-child(1) img {
+    margin-right: 25px;
+}
+
+header div:nth-child(2) img {
+    height: 25px;
+    margin-right: 25px;
+}
+
+header div:nth-child(3){
+    flex-grow: 1;
+}
+
+header div:nth-child(4) {
+    margin-right: 5%;
+}
+
+header div:nth-child(4) img{
+    height: 23px;
+    margin-left: 25px;
+}
+
+header button {
+    background-color: red;
+    padding-left: 15px;
+    border: 0;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+}
+
+#divider {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    margin: 0 auto;
+}
+
+header h3{
+    display: inline;
+}
+
+
+/* main news */
+
+.container{
+    margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	max-width: 1170px;
+}
+
+.flex{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.news1{
+    width: 100%;
+    height: 300px;
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.news2{
+    display: flex;
+    margin-top: 50px;
+    width: 100%;
+    height: 250px;
+    background-color: #10141c;
+}
+
+.news1 div
+{
+    flex-grow: 1;
+    height: 100%;
+}
+
+.news1:nth-child(1){
+    background-image: url("/static/images/");
+    background-size: cover;
+    background-position: bottom;
+}
+
+.news1:nth-child(2){
+    background-image: url("/static/images/ariana50.jpg");
+    background-size: cover;
+    background-position: bottom;
+}
+
+.news1:nth-child(3){
+    background-image: url("/static/images/GettyImages-1395207573c.jpg");
+    background-size: cover;
+    background-position: bottom;
+}
+
+.news1:nth-child(4){
+    background-image: url("/static/images/young-thug-rico-background.jpg");
+    background-size: cover;
+    background-position: bottom;
+}
+
+.news1 *{
+    text-align: center;
+    color: black;
+}
+.news2 figcaption{
+    color: #fff;
+}
