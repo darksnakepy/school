@@ -82,7 +82,7 @@ int registerUser()
             {
                 do
                 {
-                    printf("Inserisci il numero di utenti che vuoi registrare\n");
+                    printf("Inserisci il numero di utenti che vuoi registrare\n>");
                     scanf("%d", &family);
 
                 } while (family < 0 || family > 4);
@@ -121,7 +121,7 @@ int registerUser()
                     switch (family)
                     {
                     case 1:
-                        if (cabineOccupate[0] <= 10)
+                        if (cabineOccupate[0] < 10)
                         {
                             cabineOccupate[0]++;
                             lungFamiglia[familyCont] = family;
@@ -137,7 +137,7 @@ int registerUser()
                         }
                         break;
                     case 2:
-                        if (cabineOccupate[1] <= 10)
+                        if (cabineOccupate[1] < 10)
                         {
                             cabineOccupate[1]++;
                             lungFamiglia[familyCont] = family;
@@ -153,7 +153,7 @@ int registerUser()
                         }
                         break;
                     case 3:
-                        if (cabineOccupate[2] <= 10)
+                        if (cabineOccupate[2] < 10)
                         {
                             cabineOccupate[2]++;
                             lungFamiglia[familyCont] = family;
@@ -169,7 +169,7 @@ int registerUser()
                         }
                         break;
                     case 4:
-                        if (cabineOccupate[3] <= 10)
+                        if (cabineOccupate[3] < 10)
                         {
                             cabineOccupate[3]++;
                             lungFamiglia[familyCont] = family;
@@ -193,11 +193,12 @@ int registerUser()
                     {
                         cabinePiene = true;
                     }
-                    else
-                    {
-                        printf("Non ci sono abbastanza posti\n");
-                        Sleep(1000);
-                    }
+                }
+                else
+                {
+                    printf("Non ci sono cabine libere\n");
+                    Sleep(5000);
+                    main();
                 }
 
             }
@@ -220,42 +221,45 @@ int registerUser()
 
 void database()
 {
-	int i, j;
-    int giglo = 0;
+    int counter = 0;
     int spesaFamiglia = 0;
     
-    printf("\n");
-    for (i = 0; i < 4; i++)
+   
+    for (int i = 0; i < 4; i++)
     {
-        printf(" Cabine da [%d] persone - [%d]\n", i + 1, cabineOccupate[i]);
+        printf(" Cabine da %d occupate : [%d] persone\n", i + 1, cabineOccupate[i]);
     }
 
-    for (i = 0; i < familyCont; i++)
+    for (int i = 0; i < familyCont; i++)
     {
-        for (j = 0; j < lungFamiglia[i]; j++)
+        printf("\nCabina da %d\n", lungFamiglia[i]);
+        for (int j = 0; j < lungFamiglia[i]; j++)
         {
-
-            printf("\n Nome: [%s]\nCognome: [%s] ", nomi[j], cognomi[j]);
-            printf("\n Data di nascita persona numero [%d]: %d %d %d", day[j], month[j], year[j]);
-            printf("\n Spesa totale: %.2f", prezzoFinale[j]);
+            printf("\nPersona numero %d\n", counter + 1);
+            printf("Nome: %s\nCognome: %s\n", nomi[counter], cognomi[counter]);
+            printf("Giorno di nascita: %d\nMese di nascita: %d\nAnno di nascita: %d\n", day[counter], month[counter], year[counter]);
+            counter++;
         }
     }
+    Sleep(10000);
     cont = false;
 }
 
 
 void acquisto()
 {
-	int i;
-    for (i = 0; i < nPersone; i++)
+    for (int i = 0; i < nPersone; i++)
     {
         prezzoFinale[i] = ((double)rand() / RAND_MAX) * 400;
     }
+    printf("\nAcquisti di bevande e cibo..\n");
+    Sleep(1000);
     main();
 }
-
 
 void clear()
 {
     system("cls");
 }
+
+
