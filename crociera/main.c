@@ -6,8 +6,12 @@
 
 // dichiaro funzioni 
 void clear();
-void database();
+void output();
 void acquisto();
+float gucci();
+float shop();
+float bar();
+int trovaPersone();
 
 // variabili costanti
 #define maxPersone 100
@@ -33,7 +37,6 @@ bool cont = true;
 
 int main()
 {
-    srand(time(NULL));
     clear();
     int choice;
     printf("\n Benvenuto nel programma di registrazione di Costa Crociera!\n [0] Registra utente e/o famiglia\n [1] Bar \n [2] Gestione staff\n\n >");
@@ -46,10 +49,10 @@ int main()
             registerUser();
             break;
         case 1:
-            acquisto();
+            shop();
             break;
         case 2:
-            database();
+            output();
             break;
 
         default:
@@ -62,7 +65,7 @@ int main()
 
 int registerUser()
 {
-    
+
     int choice, i;
     bool cabinFull[4];
 
@@ -215,16 +218,16 @@ int registerUser()
             }
         }
 
-    }while (cont);
+    } while (cont);
 }
-    
 
-void database()
+
+void output()
 {
     int counter = 0;
     int spesaFamiglia = 0;
-    
-   
+
+
     for (int i = 0; i < 4; i++)
     {
         printf(" Cabine da %d occupate : [%d] persone\n", i + 1, cabineOccupate[i]);
@@ -235,31 +238,140 @@ void database()
         printf("\nCabina da %d\n", lungFamiglia[i]);
         for (int j = 0; j < lungFamiglia[i]; j++)
         {
-            printf("\nPersona numero %d\n", counter + 1);
-            printf("Nome: %s\nCognome: %s\n", nomi[counter], cognomi[counter]);
-            printf("Giorno di nascita: %d\nMese di nascita: %d\nAnno di nascita: %d\n", day[counter], month[counter], year[counter]);
-            counter++;
+            printf("\nPersona numero %d\n", j + 1);
+            printf("Nome: %s\nCognome: %s\n", nomi[j], cognomi[j]);
+            printf("Giorno di nascita: %d\nMese di nascita: %d\nAnno di nascita: %d\n", day[j], month[j], year[j]);
+            j++;
+            printf("");
         }
     }
     Sleep(10000);
     cont = false;
 }
 
-
-void acquisto()
+float shop()
 {
-    for (int i = 0; i < nPersone; i++)
+    int choice = 0;
+    int personChoice = 0;
+    printf("Scegli in quale negozio vuoi andare.\n [0] Bar\n [1] Gucci Store");
+    switch (choice)
     {
-        prezzoFinale[i] = ((double)rand() / RAND_MAX) * 400;
+    case 0:
+        personChoice = trovaPersone();
+        prezzoFinale[personChoice] += bar();
+        break;
+
+    case 1:
+        personChoice = trovaPersone();
+        prezzoFinale[personChoice] += gucci();
+        break;
+
+    default:
+        printf("Scelta Sbagliata!\n");
+        Sleep(2000);
+        clear();
+        break;
     }
-    printf("\nAcquisti di bevande e cibo..\n");
-    Sleep(1000);
-    main();
+
 }
+
+float bar()
+{
+    int choice = 0;
+    float total = 0;
+    float cosBar[] = { 6.00f, 6.50f, 20.0f };
+    char nomBar[][20] =
+    {
+        {"Aperol"},
+        {"Whiskey"},
+        {"Negroamaro"}
+    };
+
+}
+
+
+int trovaPersone()
+{
+    char name[20] = ""; 
+    char surname[20] = ""; 
+    int index = 0;
+    bool isOn = false;
+
+    do
+    {
+        printf("Inserisci il suo nome\n");
+        scanf("%s", name);
+        printf("Inserisci il suo cognome\n");
+        scanf("%s", surname);
+        for (int i = 0; i < nPersone; i++)
+        {
+            if (strcmp(name, nomi[i]) == 0 && strcmp(surname, cognomi[i]) == 0)
+            {
+                index = i;
+                isOn = true;
+                break;
+            }
+        }
+    } while (!isOn);
+    return index;
+}
+
+
+float gucci()
+{
+    int choice = 0;
+    float total = 0;
+    float prezzo[] = { 800.00f, 900.00f, 430.00f };
+    char nomGucci[][20] =
+    {
+        {"T-shirt"},
+        {"Borsa"},
+        {"Scarpe vintage"}
+    };
+    int carrello[3];
+    for (int i = 0; i < 3; i++)
+    {
+        carrello[i] = 0;
+    }
+    do
+    {
+        printf("Cosa desideri acquistare?:\n");
+        for (int i = 0; i < 3; i++)
+        {
+            printf("[%d]%s = %.2f $\n", i, nomGucci[i], prezzo[i]);
+        }
+        printf("[3] Indietro\n");
+        scanf("%d", &choice);
+        if (choice < 3)
+        {
+            carrello[choice]++;
+            total += prezzo[choice];
+        }
+        else if (choice == 3)
+        {
+            printf("Scontrino:\n");
+            for (int i = 0; i < 3; i++)
+            {
+                if (carrello[i] != 0)
+                {
+                    printf("%d %s\n", carrello[i], nomGucci[i]);
+                }
+            }
+            printf("Totale: %.2f $\n", total);
+            Sleep(1000);
+        }
+        else
+        {
+            printf("Inserisci una scelta valida\n");
+            Sleep(1000);
+            clear();
+        }
+    } while (choice != 3);
+    return total;
+}
+
 
 void clear()
 {
     system("cls");
 }
-
-
