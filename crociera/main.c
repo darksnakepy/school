@@ -121,7 +121,7 @@ void registerUser()
                         while (year[i] < 1900 || year[i] > 2022)
                         {
                             printf("Valore anno inserito non corretto, reinserisci\n");
-                            scanf("%d> ", &month[i]);
+                            scanf("%d> ", &year[i]);
                         }
                         printf("Utente registrato!\n");
                     }
