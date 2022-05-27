@@ -93,6 +93,7 @@ void registerUser()
                     scanf("%d", &family);
 
                 } while (family < 0 || family > 4);
+
                 if (cabinePiene == false)
                 {
                     for (int i = numeroFamiglie; i < family + numeroFamiglie; i++)
